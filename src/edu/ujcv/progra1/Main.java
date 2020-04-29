@@ -104,7 +104,7 @@ public class Main {
                             }}}
                     if (periodo > 1 || año > 2008) {
                         //AL FINALIZAR EL PRIMER PERIODO, SE REVISAN LOS ALUMNOS QUE APRUEBAN LA CLASE A Y B
-                        app = new int[8][cantAlumnos];
+
 
                         for (int i = 0; i < szA; i++) {
                             queueA.remove(0);
@@ -348,12 +348,11 @@ public class Main {
 
 
 
-                    if (
-                            año > 2008 && parcial == 1) {
-                        if (cancelled[5][periodo][año] == 0) {
+                    if (año > 2008 && parcial == 1) {
+                        if (cancelled[5][periodo][año] == 0 && cancelled[6][periodo][año]==0) {
                             for (int i = 0; i < nameF.length; i++) {
-                                if (app[5][i] == 1 && app[6][i] == 1) {
-                                    queueF.add(nameE[i]);
+                                if (app[6][i] == 1 && app[5][i] ==1) {
+                                    queueG.add(nameF[i]);
                                 }
                             }
 
@@ -381,7 +380,7 @@ public class Main {
                             if (queueF.size() > 3) {
                                 if(queueF.size()<10){sizeF=queueF.size();}else {sizeF=10;}
                                 nameF = new String[sizeD];
-                                for (int i = 0; i < sizeE; i++) {
+                                for (int i = 0; i < sizeD; i++) {
                                     nameF[i] = queueF.get(i);
                                 }
 
@@ -506,6 +505,7 @@ public class Main {
 
                 if (parcial == 1) {
                     cantAlumnos = sizeA+cantAlumnos;}
+                app = new int[8][cantAlumnos];
                 do {
                     do {int b = 0;
                         do{if (queueD.size()==0||parcial!=3){
